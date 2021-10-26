@@ -10,7 +10,6 @@ ideasRouter.get('/', (req, res) => {
     if (!ideas) {
         res.status(404).send("duuuhh... We couldn't find any ideas boss.")
     }
-    console.log("Here's all our ideas boss.")
     res.status(200).send(ideas);
 })
 
@@ -19,7 +18,6 @@ ideasRouter.post('/', (req, res) => {
     const { name, description, numWeeks, weeklyRevenue } = req.body;
     if (name && description && numWeeks && weeklyRevenue) {
         const newIdea = addToDatabase('ideas', req.body);
-        console.log(newIdea);
         res.status(200).send(newIdea);
     }
 
